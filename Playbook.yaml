@@ -1,0 +1,13 @@
+---
+- name: Run the test playbook
+  gather_facts: false
+  host: localhost
+  tasks:
+    - name: Get username from host using playbook
+      becomae: false
+      local_action: command whoami
+      register: username_on_host_
+    - name: Display the username
+      debug:
+        msg: {{ username_on_host_ }}
+    
